@@ -1,0 +1,205 @@
+{% extends 'demo_app/base.html' %}
+
+{% block title %}顧客情報Input画面{% endblock %}
+
+{% block content %}
+<h3>顧客情報入力画面</h3>
+
+<!-- 名前セクション -->
+<div class="row">
+    <form class="col s12" action="result" method="post">
+      {% csrf_token %}
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="名字" id="last_name" type="text" class="validate">
+          <label for="last_name">last name</label>
+        </div>
+        <div class="input-field col s6">
+          <input placeholder="名前" id="first_name" type="text" class="validate">
+          <label for="first_name">first name</label>
+        </div>
+      </div>
+
+<!-- 残高セクション -->
+      <div class="row">
+        <!-- rangeの指定 -->
+        <div class="col s6">
+          <label for="limit_balance">残高
+          <input type="range" value="0" min="0" max="200000" step="1"
+            oninput="document.getElementById('output1').value=this.value">
+            <output id="output1">0</output>
+            </label>
+          </div>
+        </div>
+
+<!-- 性別、学歴、結婚歴、年齢セクション -->
+      <div class="row">
+        <div class="input-field col s3">
+           <select>
+             <option value="" disabled selected>性別</option>
+             <option value="1">男性</option>
+             <option value="2">女性</option>
+           </select>
+           <label>gender</label>
+         </div>
+         <div class="input-field col s3">
+            <select>
+              <option value="" disabled selected>学歴</option>
+              <option value="1">大学院卒業</option>
+              <option value="2">大学卒業</option>
+              <option value="3">高校卒業</option>
+              <option value="4">その他</option>
+            </select>
+            <label>education</label>
+          </div>
+          <div class="input-field col s3">
+             <select>
+               <option value="" disabled selected>結婚歴</option>
+               <option value="1">既婚</option>
+               <option value="2">未婚</option>
+               <option value="3">その他</option>
+             </select>
+             <label>marital</label>
+           </div>
+           <div class="input-field col s3">
+             <input placeholder="年齢を整数値で入力しください" id="age" type="text" class="validate">
+             <label for="age">年齢</label>
+           </div>
+         </div>
+
+<!-- 過去の支払い歴セクション -->
+      <div class="row">
+        <div class="input-field col s2">
+            <select>
+              <option value="" disabled selected>過去の支払歴1</option>
+              <option value="-1">期日までに支払い</option>
+              <option value="1">1ヶ月遅れで支払い</option>
+              <option value="2">2ヶ月遅れで支払い</option>
+            </select>
+            <label>Materialize Select</label>
+        </div>
+        <div class="input-field col s2">
+           <select>
+             <option value="" disabled selected>過去の支払歴2</option>
+             <option value="-1">期日までに支払い</option>
+             <option value="1">1ヶ月遅れで支払い</option>
+             <option value="2">2ヶ月遅れで支払い</option>
+           </select>
+           <label>Materialize Select</label>
+        </div>
+        <div class="input-field col s2">
+            <select>
+              <option value="" disabled selected>過去の支払歴3</option>
+              <option value="-1">期日までに支払い</option>
+              <option value="1">1ヶ月遅れで支払い</option>
+              <option value="2">2ヶ月遅れで支払い</option>
+            </select>
+            <label>Materialize Select</label>
+        </div>
+        <div class="input-field col s2">
+             <select>
+               <option value="" disabled selected>過去の支払歴4</option>
+               <option value="-1">期日までに支払い</option>
+               <option value="1">1ヶ月遅れで支払い</option>
+               <option value="2">2ヶ月遅れで支払い</option>
+             </select>
+             <label>Materialize Select</label>
+        </div>
+        <div class="input-field col s2">
+              <select>
+                <option value="" disabled selected>過去の支払歴5</option>
+                <option value="-1">期日までに支払い</option>
+                <option value="1">1ヶ月遅れで支払い</option>
+                <option value="2">2ヶ月遅れで支払い</option>
+              </select>
+              <label>Materialize Select</label>
+        </div>
+        <div class="input-field col s2">
+               <select>
+                 <option value="" disabled selected>過去の支払歴6</option>
+                 <option value="-1">期日までに支払い</option>
+                 <option value="1">1ヶ月遅れで支払い</option>
+                 <option value="2">2ヶ月遅れで支払い</option>
+               </select>
+               <label>Materialize Select</label>
+        </div>
+      </div>
+
+<!-- 請求書の総額セクション -->
+      <div class="row">
+        <div class="col s6">
+          <label for="limit_balance">請求書の総額
+          <input type="range" value="0" min="-200000" max="100000" step="1"
+            oninput="document.getElementById('output2').value=this.value">
+            <output id="output2">0</output>
+            </label>
+          </div>
+        </div>
+
+<!-- 支払い書の総額 -->
+      <div class="row">
+        <div class="col s6">
+          <label for="limit_balance">支払い書の総額1
+          <input type="range" value="0" min="0" max="10000" step="1"
+            oninput="document.getElementById('output3').value=this.value">
+            <output id="output3">0</output>
+            </label>
+          </div>
+          <div class="col s6">
+            <label for="limit_balance">支払い書の総額2
+            <input type="range" value="0" min="0" max="10000" step="1"
+              oninput="document.getElementById('output4').value=this.value">
+              <output id="output4">0</output>
+              </label>
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="col s6">
+            <label for="limit_balance">支払い書の総額3
+            <input type="range" value="0" min="0" max="10000" step="1"
+              oninput="document.getElementById('output5').value=this.value">
+              <output id="output5">0</output>
+              </label>
+            </div>
+            <div class="col s6">
+              <label for="limit_balance">支払い書の総額4
+              <input type="range" value="0" min="0" max="10000" step="1"
+                oninput="document.getElementById('output6').value=this.value">
+                <output id="output6">0</output>
+                </label>
+              </div>
+          </div>
+
+          <div class="row">
+            <div class="col s6">
+              <label for="limit_balance">支払い書の総額5
+              <input type="range" value="0" min="0" max="10000" step="1"
+                oninput="document.getElementById('output7').value=this.value">
+                <output id="output7">0</output>
+                </label>
+              </div>
+              <div class="col s6">
+                <label for="limit_balance">支払い書の総額6
+                <input type="range" value="0" min="0" max="10000" step="1"
+                  oninput="document.getElementById('output8').value=this.value">
+                  <output id="output8">0</output>
+                  </label>
+                </div>
+            </div>
+        <div class="flex" style="display:flex;">
+          <button class="btn waves-effect waves-light" type="submit" name="action" style="margin:10px 0 0 50px">
+            Submit
+          </button>
+    </form>
+  </div>
+
+
+<!-- 選択肢を表示するために差し込み -->
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+     var elems = document.querySelectorAll('select');
+     var instances = M.FormSelect.init(elems);
+   });
+  </script>
+{% endblock %}

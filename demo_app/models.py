@@ -30,8 +30,8 @@ class Customers(models.Model):
 
     # DBのカラムに相当する部分の定義
     id = models.AutoField(primary_key=True)
-    first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
+    first_name = models.CharField(max_length=30)
     limit_balance = models.IntegerField()
     sex = models.IntegerField(choices=gender_options)
     education = models.IntegerField(choices=education_options)
