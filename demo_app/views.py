@@ -6,7 +6,7 @@ import pickle
 import numpy as np
 
 # グローバル変数としてモデルをロード
-loaded_model = pickle.load(open('demo_app/model.pkl', 'rb'))
+loaded_model = pickle.load(open('model.pkl', 'rb'))
 
 # Create your views here.
 def index(request):
