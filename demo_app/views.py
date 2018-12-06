@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from .forms import InputForm
 from datetime import date
 from .models import Customers
-from sklearn.tree import DecisionTreeClassifier
 import pickle
 import numpy as np
 
