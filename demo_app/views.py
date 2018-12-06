@@ -4,7 +4,7 @@ from datetime import date
 from .models import Customers
 import pickle
 import numpy as np
-# from sklearn.tree import DecisionTreeClassifier
+from sklearn.tree import DecisionTreeClassifier
 
 # グローバル変数としてモデルをロード
 # loaded_model = pickle.load(open('demo_app/model.pkl', 'rb'))
