@@ -2,7 +2,7 @@
 
 {% block content %}
     <h1>情報入力画面</h1>
-      <form method="POST" class="register-form" action="result">{% csrf_token %}
+      <form method="POST" class="register-form" action="input_form">{% csrf_token %}
 
 <!-- 名前セクション -->
         <div class="row" style="margin-bottom:40px">
@@ -85,40 +85,45 @@
           </div>
         </div>
 
-<!-- 過去の支払い歴 -->
-      <p>過去の支払い歴</p>
+<!-- 支払い書の額 -->
+      <p>支払い書の額</p>
         <div class="row" style="margin-bottom:40px">
-          <div class="range col s2">
+          <div class="range col s6">
             1
             {{ form.pay_amt_1 }}
             <span>5000</span>
           </div>
-          <div class="range col s2">
+          <div class="range col s6">
             2
             {{ form.pay_amt_2 }}
             <span>5000</span>
           </div>
-          <div class="range col s2">
+        </div>
+        <div class="row" style="margin-bottom:40px">
+          <div class="range col s6">
             3
             {{ form.pay_amt_3 }}
             <span>5000</span>
           </div>
-          <div class="range col s2">
+          <div class="range col s6">
             4
             {{ form.pay_amt_4 }}
             <span>5000</span>
           </div>
-          <div class="range col s2">
+        </div>
+        <div class="row" style="margin-bottom:40px">
+          <div class="range col s6">
             5
             {{ form.pay_amt_5 }}
             <span>5000</span>
           </div>
-          <div class="range col s2">
+          <div class="range col s6">
             6
             {{ form.pay_amt_6 }}
             <span>5000</span>
           </div>
         </div>
+
 
       <button type="submit" class="save btn btn-default">Save</button>
     </form>

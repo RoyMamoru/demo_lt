@@ -56,28 +56,3 @@ class InputForm(forms.Form):
 
     class Meta:
         model = Customers
-
-#
-# #     # DBのカラムに相当する部分の定義
-#     id = models.AutoField(primary_key=True)
-#     last_name = models.CharField(max_length=30)
-#     first_name = models.CharField(max_length=30)
-#     limit_balance = models.IntegerField()
-#     sex = models.IntegerField(choices=gender_options)
-#     education = models.IntegerField(choices=education_options)
-#     marriage = models.IntegerField(choices=marital_options)
-#     age = models.IntegerField()
-#     pay_0 = models.IntegerField(choices=payment_history)
-#     pay_2 = models.IntegerField(choices=payment_history)
-#     pay_3 = models.IntegerField(choices=payment_history)
-#     pay_4 = models.IntegerField(choices=payment_history)
-#     pay_5 = models.IntegerField(choices=payment_history)
-#     pay_6 = models.IntegerField(choices=payment_history)
-#     bill_amt_1 = models.IntegerField()
-#     pay_amt_1 = models.IntegerField()
-#     pay_amt_2 = models.IntegerField()
-#     pay_amt_3 = models.IntegerField()
-#     pay_amt_4 = models.IntegerField()
-#     pay_amt_5 = models.IntegerField()
-#     pay_amt_6 = models.IntegerField()
-# ```
