@@ -7,6 +7,7 @@ import numpy as np
 from sklearn.tree import DecisionTreeClassifier
 
 # グローバル変数としてモデルをロード
+# loaded_model = pickle.load(open('demo_app/model.pkl', 'rb'))
 loaded_model = pickle.load(open('/home/roynishizawa/roynishizawa.pythonanywhere.com/demo_app/model.pkl', 'rb'))
 
 # Create your views here.
@@ -26,26 +27,26 @@ def input_form(request):
             data_keys = list(data.keys()) # 辞書のKeyのリストを取得
             # モデルをインスタンス化し、値を渡す
             register = Customers.objects.create(\
-                last_name=data[data_keys[0]],\
-                first_name=data[data_keys[1]],\
-                limit_balance=form.cleaned_data[data_keys[2]],\
-                sex=form.cleaned_data[data_keys[3]],\
-                education=form.cleaned_data[data_keys[4]],\
-                marriage=form.cleaned_data[data_keys[5]],\
-                age=form.cleaned_data[data_keys[6]],\
-                pay_0=form.cleaned_data[data_keys[7]],\
-                pay_2=form.cleaned_data[data_keys[8]],\
-                pay_3=form.cleaned_data[data_keys[9]],\
-                pay_4=form.cleaned_data[data_keys[10]],\
-                pay_5=form.cleaned_data[data_keys[11]],\
-                pay_6=form.cleaned_data[data_keys[12]],\
-                bill_amt_1=form.cleaned_data[data_keys[13]],\
-                pay_amt_1=form.cleaned_data[data_keys[14]],\
-                pay_amt_2=form.cleaned_data[data_keys[15]],\
-                pay_amt_3=form.cleaned_data[data_keys[16]],\
-                pay_amt_4=form.cleaned_data[data_keys[17]],\
-                pay_amt_5=form.cleaned_data[data_keys[18]],\
-                pay_amt_6=form.cleaned_data[data_keys[19]],
+                last_name=data['last_name'],\
+                first_name=data['first_name'],\
+                limit_balance=form.cleaned_data['limit_balance'],\
+                sex=form.cleaned_data['sex'],\
+                education=form.cleaned_data['education'],\
+                marriage=form.cleaned_data['marriage'],\
+                age=form.cleaned_data['age'],\
+                pay_0=form.cleaned_data['pay_0'],\
+                pay_2=form.cleaned_data['pay_2'],\
+                pay_3=form.cleaned_data['pay_3'],\
+                pay_4=form.cleaned_data['pay_4'],\
+                pay_5=form.cleaned_data['pay_5'],\
+                pay_6=form.cleaned_data['pay_6'],\
+                bill_amt_1=form.cleaned_data['bill_amt_1'],\
+                pay_amt_1=form.cleaned_data['pay_amt_1'],\
+                pay_amt_2=form.cleaned_data['pay_amt_2'],\
+                pay_amt_3=form.cleaned_data['pay_amt_3'],\
+                pay_amt_4=form.cleaned_data['pay_amt_4'],\
+                pay_amt_5=form.cleaned_data['pay_amt_5'],\
+                pay_amt_6=form.cleaned_data['pay_amt_6'],
                 )
             register.proba = 0.0 # 必須項目である「proba」の値を仮置き
             register.registered_date = date.today()
@@ -115,6 +116,7 @@ def delete(request):
         d_id = request.POST
         d_customer = Customers.objects.filter(id=d_id['d_id'])
         d_customer.delete()
+        customers = Customers.objects.all()
         return render(request, 'demo_app/history.html', {'customers':customers})
     else:
         customers = Customers.objects.all()
