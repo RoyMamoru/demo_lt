@@ -7,7 +7,7 @@ import numpy as np
 from sklearn.tree import DecisionTreeClassifier
 
 # グローバル変数としてモデルをロード
-# loaded_model = pickle.load(open('demo_app/model.pkl', 'rb'))
+# loaded_model = pickle.load(open('demo_app/model.pkl', 'rb')) # パスの参照をデプロイ用に変更
 loaded_model = pickle.load(open('/home/roynishizawa/roynishizawa.pythonanywhere.com/demo_app/model.pkl', 'rb'))
 
 # Create your views here.
