@@ -9,12 +9,21 @@
   </head>
   <body>
     <div class="col s12 card-panel teal lighten-2 ">
-      <span class="white-text" style="font-size:20px"><a href="/" style="color:white">ローン審査アプリ</a></span>
+      <div class="row">
+        <span class="white-text col s6" style="font-size:20px"><a href="/" style="color:white">ローン審査アプリ</a></span>
+      {% if user.is_authenticated %}
+        <span class="col s6" style="font-size:20px; text-align: right;">
+          <a href="{% url 'logout' %}" style="color:white; text-decoration: underline;">
+          こんにちは、{{ user.username}}
+          </a>
+        </span>
+      {% endif %}
+      </div>
     </div>
 
     <div class="contents" style="margin:0 20px">
       {% block content %}
-      
+
       {% endblock %}
 
     </div>

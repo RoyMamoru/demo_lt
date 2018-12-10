@@ -5,20 +5,23 @@ from .models import Customers
 import pickle
 import numpy as np
 from sklearn.tree import DecisionTreeClassifier
+from django.contrib.auth.decorators import login_required # セキュリティ対応でログインを要求する
 
 # グローバル変数としてモデルをロード
 # loaded_model = pickle.load(open('demo_app/model.pkl', 'rb')) # パスの参照をデプロイ用に変更
 loaded_model = pickle.load(open('/home/roynishizawa/roynishizawa.pythonanywhere.com/demo_app/model.pkl', 'rb'))
 
-# Create your views here.
+@login_required # ログインを要求
 def index(request):
     return render(request, 'demo_app/index.html', {})
 
 # 自前で書いたForm
+@login_required # ログインを要求
 def input(request):
     return render(request, 'demo_app/input.html', {})
 
 # Form画面
+@login_required # ログインを要求
 def input_form(request):
     if request.method == "POST":
         form = InputForm(request.POST) # 入力データの取得
@@ -57,7 +60,7 @@ def input_form(request):
         form = InputForm()
         return render(request, 'demo_app/input_form.html', {'form':form})
 
-
+@login_required # ログインを要求
 def result(request):
     new_id = len(Customers.objects.all()) -1 # 最新の登録のIDを取得
     _data = Customers.objects.order_by('id')[new_id] # 該当データを取得
@@ -107,6 +110,7 @@ def result(request):
 
     return render(request, 'demo_app/result.html', {'y':y[0], 'y_proba':round(y_proba[0][y[0]], 2), 'comment':comment}) # 確率は結果を元に自信度を表示する：結果が1番目の場合, 確率は1番目になる
 
+@login_required # ログインを要求
 def history(request):
     customers = Customers.objects.all()
     return render(request, 'demo_app/history.html', {'customers':customers})

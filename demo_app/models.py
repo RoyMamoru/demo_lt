@@ -7,7 +7,7 @@ class Customers(models.Model):
     education_options = (
     (1, 'graduate_school'),
     (2, 'university'),
-    (3, 'high school;'),
+    (3, 'high school'),
     (4, 'other'),
     )
 
@@ -23,7 +23,8 @@ class Customers(models.Model):
     )
 
     payment_history = (
-    (-1, 'pay'),
+    (-1, 'pay early'),
+    (0, 'pay dully'),
     (1, '1month_dalay'),
     (2, '2months_dlay')
     )

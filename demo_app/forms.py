@@ -12,7 +12,7 @@ class InputForm(forms.Form):
     education_options = (
     (1, 'graduate_school'),
     (2, 'university'),
-    (3, 'high school;'),
+    (3, 'high school'),
     (4, 'other'),
     )
 
@@ -28,7 +28,8 @@ class InputForm(forms.Form):
     )
 
     payment_history = (
-    (-1, 'pay'),
+    (-1, 'pay early'),
+    (0, 'pay dully'),
     (1, '1month_dalay'),
     (2, '2months_dlay')
     )
@@ -40,12 +41,12 @@ class InputForm(forms.Form):
     education = forms.ChoiceField(choices=education_options)
     marriage = forms.ChoiceField(choices=marital_options)
     age = forms.IntegerField()
-    pay_0 = forms.ChoiceField(choices=payment_history)
-    pay_2 = forms.ChoiceField(choices=payment_history)
-    pay_3 = forms.ChoiceField(choices=payment_history)
-    pay_4 = forms.ChoiceField(choices=payment_history)
-    pay_5 = forms.ChoiceField(choices=payment_history)
-    pay_6 = forms.ChoiceField(choices=payment_history)
+    pay_0 = forms.ChoiceField(choices=payment_history, initial=0)
+    pay_2 = forms.ChoiceField(choices=payment_history, initial=0)
+    pay_3 = forms.ChoiceField(choices=payment_history, initial=0)
+    pay_4 = forms.ChoiceField(choices=payment_history, initial=0)
+    pay_5 = forms.ChoiceField(choices=payment_history, initial=0)
+    pay_6 = forms.ChoiceField(choices=payment_history, initial=0)
     bill_amt_1 = forms.IntegerField(label='bill_amt_1', widget=RangeInput(), min_value=-200000, max_value=100000, initial=0)
     pay_amt_1 = forms.IntegerField(label='pat_amt_1', widget=RangeInput(), min_value=0, max_value=10000, initial=5000)
     pay_amt_2 = forms.IntegerField(label='pat_amt_2', widget=RangeInput(), min_value=0, max_value=10000, initial=5000)
