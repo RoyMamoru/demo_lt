@@ -15,7 +15,7 @@ loaded_model = pickle.load(open('/home/roynishizawa/roynishizawa.pythonanywhere.
 def index(request):
     return render(request, 'demo_app/index.html', {})
 
-# 自前で書いたForm
+# 自前で書いたFormへのURL
 @login_required # ログインを要求
 def input(request):
     return render(request, 'demo_app/input.html', {})
